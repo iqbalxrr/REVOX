@@ -1,0 +1,79 @@
+[
+  {
+    "Service Image": "https://example.com/images/ebook_mastering_photography.jpg",
+    "Service Title": "Mastering Night Photography - eBook",
+    "Company Name": "PhotoPro Academy",
+    "Website": "https://www.photoproacademy.com/ebooks/night-photography",
+    "Description": "A comprehensive guide to capturing stunning night photos. Covers techniques, gear, and post-processing tips. Includes example images and case studies.",
+    "Category": "E-book",
+    "Price": "19.99",
+    "Added date": "2025-06-05T03:00:00Z",
+    "userEmail": "user_from_auth@example.com"
+  },
+  {
+    "Service Image": "https://example.com/images/webdev_course.png",
+    "Service Title": "Ultimate Web Developer Bootcamp 2025",
+    "Company Name": "CodeLearn Institute",
+    "Website": "https://www.codelearninstitute.com/courses/webdev-bootcamp",
+    "Description": "An extensive online course covering HTML, CSS, JavaScript, React, Node.js, and more. Includes hundreds of lectures, projects, and lifetime access.",
+    "Category": "Online Course",
+    "Price": "129.99",
+    "Added date": "2025-06-04T11:20:00Z",
+    "userEmail": "student_learner@example.com"
+  },
+  {
+    "Service Image": "https://example.com/images/project_management_saas.svg",
+    "Service Title": "TaskFlow Pro",
+    "Company Name": "Agile Solutions Ltd.",
+    "Website": "https://www.taskflowpro.com",
+    "Description": "A cloud-based project management software designed for teams. Features task tracking, Gantt charts, collaboration tools, and reporting dashboards.",
+    "Category": "Software (SaaS)",
+    "Price": "10/user/month",
+    "Added date": "2025-06-03T15:00:00Z",
+    "userEmail": "project_manager@example.com"
+  },
+  {
+    "Service Image": "https://example.com/images/stock_photo_pack_nature.jpg",
+    "Service Title": "Nature's Beauty - Stock Photo Pack",
+    "Company Name": "PixelPerfect Stock",
+    "Website": "https://www.pixelperfectstock.com/packs/nature-beauty",
+    "Description": "A collection of 50 high-resolution, royalty-free stock photos featuring breathtaking natural landscapes. Perfect for websites, marketing materials, and creative projects.",
+    "Category": "Stock Photos",
+    "Price": "49.00",
+    "Added date": "2025-06-02T09:30:00Z",
+    "userEmail": "graphic_designer@example.com"
+  },
+  {
+    "Service Image": "https://example.com/images/portfolio_template_minimal.png",
+    "Service Title": "Minimalist Portfolio Website Template",
+    "Company Name": "ThemeCraft",
+    "Website": "https://www.themecraft.com/templates/minimalist-portfolio",
+    "Description": "A clean and modern HTML/CSS template for creating professional online portfolios. Easy to customize, fully responsive, and well-documented.",
+    "Category": "Website Template",
+    "Price": "25.00",
+    "Added date": "2025-06-01T18:00:00Z",
+    "userEmail": "freelancer_dev@example.com"
+  },
+  {
+    "Service Image": "https://example.com/images/fitness_app_premium.svg",
+    "Service Title": "FitLife Premium Workout App",
+    "Company Name": "Wellness Tech Inc.",
+    "Website": "https://www.fitlifeapp.com/premium",
+    "Description": "Mobile app offering personalized workout plans, progress tracking, meal suggestions, and access to expert trainers. Unlock all features with premium.",
+    "Category": "Mobile App (Subscription)",
+    "Price": "9.99/month",
+    "Added date": "2025-05-31T12:10:00Z",
+    "userEmail": "health_enthusiast@example.com"
+  },
+  {
+    "Service Image": "https://example.com/images/social_media_templates.png",
+    "Service Title": "Canva Social Media Templates Bundle",
+    "Company Name": "Creative Market Co.",
+    "Website": "https://www.creativemarketco.com/canva-templates",
+    "Description": "A bundle of 100+ professionally designed and editable Canva templates for Instagram posts, stories, Facebook covers, and more. Boost your social media presence.",
+    "Category": "Digital Templates",
+    "Price": "35.00",
+    "Added date": "2025-05-30T10:00:00Z",
+    "userEmail": "social_media_manager@example.com"
+  }
+]

@@ -3,6 +3,7 @@ import MainLayout from "../Layout/MainLayout";
 import HomePage from "../Pages/HomePage";
 import SignupPage from "../Pages/SignupPage";
 import SigninPage from "../Pages/SigninPage";
+import AddServicePage from "../Pages/AddServicePage";
 
 export const router = createBrowserRouter([
       
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
             {
                 path: "/signin",
                 Component: SigninPage
+            },
+            {
+                path: "/addservice",
+                Component:AddServicePage
             }
         ]
     }

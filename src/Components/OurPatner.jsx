@@ -110,7 +110,7 @@ const OurPatner = () => {
      <Slider {...setting1} className=" my-6">
       {logos1.map((logo, index) => (
         <div key={index} className="flex justify-center items-center p-4">
-          <img src={logo} className="h-20 md:h-24 object-contain" alt={`logo-${index}`} />
+          <img src={logo} className="h-20  object-contain" alt={`logo-${index}`} />
         </div>
       ))}
     </Slider>
