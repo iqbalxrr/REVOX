@@ -34,7 +34,7 @@ export const router = createBrowserRouter([
                 Component: AllServicePage
             },
             {
-                path: "servicedetails/:id",
+                path: "servicedetails/:_id",
                 Component: DetailsPage
             }
         ]
