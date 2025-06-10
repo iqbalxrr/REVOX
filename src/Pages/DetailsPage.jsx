@@ -1,72 +1,94 @@
-
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import RattingSection from "../Components/RattingSection";
 
 const DetailsPage = () => {
+  const { _id } = useParams();
 
-    const { _id } = useParams(); 
+  const [serviceDetails, setServiceDetails] = useState([]);
 
-    const [ serviceDetails, setServiceDetails ] = useState([]); 
+  // console.log('Service ID:', _id);
 
-    // console.log('Service ID:', _id);
-
-     useEffect(()=>{
-     
-        axios.get(`http://localhost:3000/services/${_id}`)
-        .then(response => {
-            setServiceDetails(response.data);
-            console.log('Service details:', response.data);
-            
-        })
-        .catch(error => {
-            console.error('Error fetching service details:', error);
-        });
-
-     },[_id]);
-    return (
-        <div className='container mx-auto min-h-screen bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-4  poppins'>
-        
-        <div className="flex flex-col  md:flex-row  my-45 bg-white rounded-2xl shadow-lg p-6 sm:p-10 gap-8 ">
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3000/services/${_id}`)
+      .then((response) => {
+        setServiceDetails(response.data);
+        console.log("Service details:", response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching service details:", error);
+      });
+  }, [_id]);
+  return (
+    <div className="container mx-auto min-h-screen bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-7 poppins">
+      <div className="flex flex-col  md:flex-row  mt-45  rounded-2xl pb-10 gap-16 ">
         <img
           src={serviceDetails.serviceImage}
           alt={serviceDetails.name}
-          className="w-full md:w-72  object-cover rounded-2xl shadow-md mx-auto"
+          className="w-full md:w-80  object-cover rounded-2xl shadow-md "
         />
 
-        <div className="flex flex-col flex-1 space-y-5 ">
-          <h1 className="text-3xl lg:text-5xl font-bold mont-font md:w-3/4 ">{serviceDetails.serviceTitle }</h1>
+        <div className="flex flex-col flex-1 space-y-5 lg:space-y-8 ">
+          <h1 className="text-3xl lg:text-5xl font-bold mont-font md:w-3/4 ">
+            {serviceDetails.serviceTitle}
+          </h1>
 
           <p className="text-base lg:text-xl ">
-            <span className="font-semibold">Category : </span> {serviceDetails.category}
+            <span className="font-semibold">Category : </span>{" "}
+            {serviceDetails.category}
           </p>
 
           <p className="text-base lg:text-xl md:w-9/10 ">
-            <span className="font-semibold"> Discription : </span> {serviceDetails.description}
+            <span className="font-semibold"> Discription : </span>{" "}
+            {serviceDetails.description}
           </p>
           <p className="text-base lg:text-xl ">
-            <span className="font-semibold"> Company Name : </span> {serviceDetails.companyName}
+            <span className="font-semibold"> Company Name : </span>{" "}
+            {serviceDetails.companyName}
           </p>
 
-          <p className="text-base lg:text-xl md:w-3/4 ">
+          <p className="text-base lg:text-xl md:w-3/4 overflow-hidden ">
             <span className="font-semibold">Website : </span>
-            <a href={serviceDetails.website} target="_blank"className="text-blue-500 hover:underline" > {serviceDetails.website}</a>
-              
-            
+            <a
+              href={serviceDetails.website}
+              target="_blank"
+              className="text-blue-500 hover:underline"
+            >
+              {" "}
+              {serviceDetails.website}
+            </a>
           </p>
 
           <p className="text-base lg:text-xl  ">
-            <span className="font-semibold">Price :</span> {serviceDetails.price}$
+            <span className="font-semibold">Price :</span>{" "}
+            {serviceDetails.price}$
           </p>
           <p className="text-base lg:text-xl ">
-            <span className="font-semibold">Add Date :</span> {serviceDetails.addedDate}
+            <span className="font-semibold">Add Date :</span>{" "}
+            {serviceDetails.addedDate}
           </p>
-         
         </div>
+
       </div>
-            
+
+      <hr />
+
+        <div className="flex flex-col  md:flex-row justify-between my-5">
+            <h2 className="text-2xl lg:text-4xl font-bold " >
+           See what reviewers are saying
+          </h2>
+
+          <h2 className="text-base">Total review(0) </h2>
+          
         </div>
-    );
+      <div>
+            <RattingSection reatingId={_id} />
+        </div>
+
+    </div>
+  );
 };
 
 export default DetailsPage;
