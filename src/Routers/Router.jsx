@@ -4,6 +4,8 @@ import HomePage from "../Pages/HomePage";
 import SignupPage from "../Pages/SignupPage";
 import SigninPage from "../Pages/SigninPage";
 import AddServicePage from "../Pages/AddServicePage";
+import AllServicePage from "../Pages/AllServicePage";
+import DetailsPage from "../Pages/DetailsPage";
 
 export const router = createBrowserRouter([
       
@@ -26,6 +28,14 @@ export const router = createBrowserRouter([
             {
                 path: "/addservice",
                 Component:AddServicePage
+            },
+            {
+                path:"/allservices",
+                Component: AllServicePage
+            },
+            {
+                path: "servicedetails/:id",
+                Component: DetailsPage
             }
         ]
     }

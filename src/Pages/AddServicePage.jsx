@@ -4,6 +4,7 @@ import { Form } from "react-router";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Contex/AuthProvider";
+import axios from "axios";
 
 const AddServicePage = () => {
   const { user } = useContext(AuthContext);
@@ -14,7 +15,7 @@ const AddServicePage = () => {
     const form = event.target;
 
     const service = {
-      serviceImage: form.serviceImage.files[0]?.name || "",
+      serviceImage: form.serviceImage.value,
       serviceTitle: form.serviceTitle.value,
       companyName: form.companyName.value,
       website: form.website.value,
@@ -25,16 +26,28 @@ const AddServicePage = () => {
       userEmail: user?.email || "Anonymous",
     };
 
-    console.log("Submitted Service:", service);
+   
 
-    // Submit to backend here...
-
+  axios
+  .post("http://localhost:3000/services", service)
+  .then((response) => {
+    console.log("Service added successfully:", response.data);
     Swal.fire({
       title: "Service Added Successfully!",
       icon: "success",
     });
+  })
+  .catch((error) => {
+    console.error("Error adding service:", error.response?.data );
+    Swal.fire({
+      title: "Failed to add service!",
+      text: error.response?.data?.message ,
+      icon: "error",
+    });
+  });
 
-    form.reset();
+
+    // form.reset();
   };
 
   return (
@@ -42,16 +55,16 @@ const AddServicePage = () => {
       <Helmet>
         <title>Add Service | Qview</title>
       </Helmet>
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-4">
-        <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-md">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-4 mt-20 poppins">
+        <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-2xl">
           <h2 className="text-2xl font-semibold text-center primary-color mb-6">
             Add New Service
           </h2>
           <Form onSubmit={handleAddService} className="space-y-4">
             <input
-              type="file"
+              type="text"
               name="serviceImage"
-              accept="image/*"
+              placeholder="Service Image URL"
               className="w-full px-4 py-2 border rounded-md"
               required
             />
@@ -70,7 +83,7 @@ const AddServicePage = () => {
               required
             />
             <input
-              type="url"
+              type="text"
               name="website"
               placeholder="Company Website"
               className="w-full px-4 py-2 border rounded-md"

@@ -6,7 +6,7 @@ import { AuthContext } from "../Contex/AuthProvider";
 
 const Navber = () => {
   const navigate = useNavigate();
-  const { user, LogOut, loading, theme, toggleTheme } = useContext(AuthContext);
+  const { user, LogOut, loading, } = useContext(AuthContext);
   const [menuOpen, setMenuOpen] = useState(false);
 
 
@@ -39,7 +39,7 @@ const Navber = () => {
         <NavLink to="/about" onClick={() => setMenuOpen(false)}>Services</NavLink>
       </li>
       <li>
-        <NavLink to="/allplants" onClick={() => setMenuOpen(false)}>About</NavLink>
+        <NavLink to="/allservices" onClick={() => setMenuOpen(false)}>All Services</NavLink>
       </li>
       {user && (
         <>
@@ -53,6 +53,8 @@ const Navber = () => {
       )}
     </>
   );
+
+  console.log("User:", user , user?.photoURL);
 
   return (
     <nav className={`border-b mont-font border-gray-200 bg-white shadow-md fixed w-full top-0 z-50 `}>
@@ -95,7 +97,7 @@ const Navber = () => {
                   <img
                     src={
                       user?.photoURL ||
-                      "https://placehold.co/48x48/E0E0E0/757575?text=U" 
+                      "" 
                     }
                     className="w-12 mt-2  rounded-full hidden lg:block"
                     alt="User Avatar"
