@@ -6,6 +6,8 @@ import SigninPage from "../Pages/SigninPage";
 import AddServicePage from "../Pages/AddServicePage";
 import AllServicePage from "../Pages/AllServicePage";
 import DetailsPage from "../Pages/DetailsPage";
+import MyServicesPage from "../Pages/MyServicesPage";
+import MyReviewPage from "../Pages/MyReviewPage";
 
 export const router = createBrowserRouter([
       
@@ -36,6 +38,15 @@ export const router = createBrowserRouter([
             {
                 path: "servicedetails/:_id",
                 Component: DetailsPage
+            },
+            {
+                path: "/myservices",
+                Component: MyServicesPage
+            },
+            {
+                path: "/myreviews",
+                Component: MyReviewPage
+
             }
         ]
     }

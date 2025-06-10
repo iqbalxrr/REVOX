@@ -1,6 +1,6 @@
 
 import React, { useContext, useState } from "react";
-import { Form } from "react-router";
+import { Form, useNavigate } from "react-router";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Contex/AuthProvider";
@@ -9,6 +9,7 @@ import axios from "axios";
 const AddServicePage = () => {
   const { user } = useContext(AuthContext);
   const [addedDate] = useState(new Date().toISOString().split("T")[0]);
+  const navigate = useNavigate();
 
   const handleAddService = (event) => {
     event.preventDefault();
@@ -36,6 +37,9 @@ const AddServicePage = () => {
       title: "Service Added Successfully!",
       icon: "success",
     });
+    form.reset();
+    navigate("/allservices");
+
   })
   .catch((error) => {
     console.error("Error adding service:", error.response?.data );

@@ -124,7 +124,7 @@ const AuthProvider = ({ children }) => {
 
   };
 
-  console.log(user);
+  // console.log(user);
 
   return <AuthContext.Provider value={info}>{children}</AuthContext.Provider>;
 };

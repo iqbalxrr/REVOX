@@ -47,6 +47,9 @@ const Navber = () => {
             <NavLink to="/addservice" onClick={() => setMenuOpen(false)}>Add Service</NavLink>
           </li>
           <li>
+            <NavLink to="/myservices" onClick={() => setMenuOpen(false)}>My Services</NavLink>
+          </li>
+          <li>
             <NavLink to="/myreviews" onClick={() => setMenuOpen(false)}>My Reviews</NavLink>
           </li>
         </>
@@ -54,7 +57,7 @@ const Navber = () => {
     </>
   );
 
-  console.log("User:", user , user?.photoURL);
+  // console.log("User:", user , user?.photoURL);
 
   return (
     <nav className={`border-b mont-font border-gray-200 bg-white shadow-md fixed w-full top-0 z-50 `}>
