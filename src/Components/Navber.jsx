@@ -87,7 +87,7 @@ const Navber = () => {
         </button>
 
         <div className={`w-full lg:w-auto lg:flex ${menuOpen ? "block" : "hidden"}`}>
-          <ul className={` text-xl poppins flex flex-col lg:flex-row lg:gap-5 space-y-3 lg:space-y-0 items-center  py-4 lg:mt-0  lg:p-0 rounded-lg lg:rounded-none `}>
+          <ul className={` text-[18px] poppins flex flex-col lg:flex-row lg:gap-5 space-y-3 lg:space-y-0 items-center  py-4 lg:mt-0  lg:p-0 rounded-lg lg:rounded-none `}>
             {navLinks}
 
             <li className="mt-2 lg:mt-0 flex items-center gap-2">

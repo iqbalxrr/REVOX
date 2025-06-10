@@ -3,6 +3,7 @@ import React from 'react';
 import HeroSlider from '../Components/HeroSlider';
 import OurPatner from '../Components/OurPatner';
 import MeetPartners from '../Components/MeetPartners';
+import CountStats from '../Components/CountStats';
 
 const HomePage = () => {
     return (
@@ -10,6 +11,7 @@ const HomePage = () => {
             <HeroSlider></HeroSlider>
             <MeetPartners></MeetPartners>
             <OurPatner></OurPatner>
+            <CountStats></CountStats>
         </div>
     );
 };

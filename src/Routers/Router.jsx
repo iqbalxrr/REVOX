@@ -8,6 +8,9 @@ import AllServicePage from "../Pages/AllServicePage";
 import DetailsPage from "../Pages/DetailsPage";
 import MyServicesPage from "../Pages/MyServicesPage";
 import MyReviewPage from "../Pages/MyReviewPage";
+import PrivateRoute from "../Routers/PrivateRoute/PrivateRoute";
+
+
 
 export const router = createBrowserRouter([
       
@@ -41,11 +44,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/myservices",
-                Component: MyServicesPage
+                element: <PrivateRoute><MyServicesPage></MyServicesPage></PrivateRoute>
             },
             {
                 path: "/myreviews",
-                Component: MyReviewPage
+                element: <PrivateRoute> <MyReviewPage></MyReviewPage> </PrivateRoute>
 
             }
         ]
