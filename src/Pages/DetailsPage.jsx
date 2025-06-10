@@ -1,9 +1,12 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { useParams } from "react-router";
 import RattingSection from "../Components/RattingSection";
 
+
 const DetailsPage = () => {
+
+  
   const { _id } = useParams();
 
   const [serviceDetails, setServiceDetails] = useState([]);
@@ -75,16 +78,10 @@ const DetailsPage = () => {
 
       <hr />
 
-        <div className="flex flex-col  md:flex-row justify-between my-5">
-            <h2 className="text-2xl lg:text-4xl font-bold " >
-           See what reviewers are saying
-          </h2>
-
-          <h2 className="text-base">Total review(0) </h2>
-          
-        </div>
-      <div>
-            <RattingSection reatingId={_id} />
+      
+        <div>
+            <RattingSection reatingId={_id} serviceTitle={serviceDetails.serviceTitle} 
+ />
         </div>
 
     </div>
