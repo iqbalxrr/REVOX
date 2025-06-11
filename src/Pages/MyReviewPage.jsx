@@ -79,7 +79,7 @@ if (loading) return <Loader />;
           myReviews.map((review) => (
             <div key={review._id} className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 bg-white p-4 rounded-lg shadow-md mb-5">
               <div className="flex-1">
-                <h1 className="text-xl font-semibold mb-2 mont-font">{review.serviceTitle}</h1>
+                <h1 className="text-xl font-semibold mb-2 mont-font primary-color">{review.serviceTitle}</h1>
                 <p className="text-gray-500 mb-2 poppins">Rating: {review.rating}/5⭐  </p>
                 <p className="text-gray-900 poppins overflow-hidden"> <span className="font-semibold">Review : </span> {review.text}</p>
               </div>

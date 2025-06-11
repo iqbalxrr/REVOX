@@ -30,10 +30,10 @@ const DetailsPage = () => {
         <img
           src={serviceDetails.serviceImage}
           alt={serviceDetails.name}
-          className="w-full md:w-80  object-cover rounded-2xl shadow-md "
+          className="w-full md:w-75  object-cover rounded-2xl shadow-md "
         />
 
-        <div className="flex flex-col flex-1 space-y-5 lg:space-y-8 ">
+        <div className="flex flex-col flex-1 space-y-5 lg:space-y-6 ">
           <h1 className="text-3xl lg:text-5xl font-bold mont-font md:w-3/4 ">
             {serviceDetails.serviceTitle}
           </h1>

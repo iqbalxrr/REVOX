@@ -1,13 +1,13 @@
-
-
 import React from 'react';
 
 const Loader = () => {
     return (
-        <div>
-            <div className="flex items-center justify-center h-screen ">
-                <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-blue-500"></div>
-            </div> 
+        <div className="flex items-center justify-center h-screen bg-gray-100">
+            <div className="relative w-16 h-16">
+                <div className="absolute inset-0 rounded-full border-4 border-blue-500 opacity-30"></div>
+                <div className="w-full h-full border-4 border-blue-500 border-t-transparent border-b-transparent rounded-full animate-spin"></div>
+                <div className="absolute inset-0 rounded-full shadow-lg shadow-blue-500/50 animate-pulse"></div>
+            </div>
         </div>
     );
 };
