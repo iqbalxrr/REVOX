@@ -16,7 +16,7 @@ const ServiceCard = ({ service }) => {
         </div>
         <div className="p-5 space-y-2 pb-7 ">
           <h2 className="text-xl font-semibold primary-color">{service.serviceTitle}</h2>
-          <p className="text-gray-700 text-sm line-clamp-3 ">
+          <p className="text-gray-700 text-sm line-clamp-3 overflow-hidden ">
             {service.description}
           </p>
           <div className="flex justify-between items-center text-bese text-gray-500">

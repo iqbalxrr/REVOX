@@ -1,4 +1,3 @@
-
 import React, { useContext, useState } from "react";
 import { Form, useNavigate } from "react-router";
 import { Helmet, HelmetProvider } from "react-helmet-async";
@@ -27,31 +26,25 @@ const AddServicePage = () => {
       userEmail: user?.email || "Anonymous",
     };
 
-   
-
-  axios
-  .post("http://localhost:3000/services", service)
-  .then((response) => {
-    console.log("Service added successfully:", response.data);
-    Swal.fire({
-      title: "Service Added Successfully!",
-      icon: "success",
-    });
-    form.reset();
-    navigate("/allservices");
-
-  })
-  .catch((error) => {
-    console.error("Error adding service:", error.response?.data );
-    Swal.fire({
-      title: "Failed to add service!",
-      text: error.response?.data?.message ,
-      icon: "error",
-    });
-  });
-
-
-    // form.reset();
+    axios
+      .post("http://localhost:3000/services", service)
+      .then((response) => {
+        console.log("Service added successfully:", response.data);
+        Swal.fire({
+          title: "Service Added Successfully!",
+          icon: "success",
+        });
+        form.reset();
+        navigate("/allservices");
+      })
+      .catch((error) => {
+        console.error("Error adding service:", error.response?.data);
+        Swal.fire({
+          title: "Failed to add service!",
+          text: error.response?.data?.message,
+          icon: "error",
+        });
+      });
   };
 
   return (
@@ -98,13 +91,27 @@ const AddServicePage = () => {
               className="w-full px-4 py-2 border rounded-md"
               required
             ></textarea>
-            <input
-              type="text"
+
+            {/* Updated Category Dropdown */}
+            <select
               name="category"
-              placeholder="Category"
               className="w-full px-4 py-2 border rounded-md"
               required
-            />
+            >
+              <option value="">Select Category</option>
+              <option value="Templates">Templates</option>
+              <option value="Mobile App">Mobile App</option>
+              <option value="Stock Photos">Stock Photos</option>
+              <option value="E-book">E-book</option>
+              <option value="WordPress Plugins">WordPress Plugins</option>
+              <option value="Online Course">Online Course</option>
+              <option value="UI Kit">UI Kit</option>
+              <option value="Design Service">Design Service</option>
+              <option value="SaaS Tool">SaaS Tool</option>
+              <option value="Freelancer">Freelancer</option>
+              <option value="Photography">Photography</option>
+            </select>
+
             <input
               type="number"
               name="price"
@@ -124,7 +131,6 @@ const AddServicePage = () => {
               readOnly
               className="w-full px-4 py-2 border rounded-md bg-gray-100 text-gray-500"
             />
-
             <button
               type="submit"
               className="w-full py-2 bg-primary-color text-white rounded-md hover:bg-purple-700 transition duration-200"

@@ -36,7 +36,7 @@ const Navber = () => {
         <NavLink to="/" onClick={() => setMenuOpen(false)}>Home</NavLink>
       </li>
       <li>
-        <NavLink to="/about" onClick={() => setMenuOpen(false)}>Services</NavLink>
+        {/* <NavLink to="/about" onClick={() => setMenuOpen(false)}>Services</NavLink> */}
       </li>
       <li>
         <NavLink to="/allservices" onClick={() => setMenuOpen(false)}>All Services</NavLink>
@@ -63,7 +63,7 @@ const Navber = () => {
     <nav className={`border-b mont-font border-gray-200 bg-white shadow-md fixed w-full top-0 z-50 `}>
       <div className="container flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/" className="flex items-center  ">
-          <img src="/logo22.png" className=" w-40 md:w-50 mr-0  " alt="Logo" />
+          <img src="/logo22.png" className="w-35 md:w-40 mr-0" alt="Logo" />
           <span className="text-3xl md:text-5xl font-bold mt-5  ">
            {/* <span className=" text-gray-700">Revix</span> */}
           </span>

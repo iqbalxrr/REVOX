@@ -103,7 +103,7 @@ const OurPatner = () => {
   };
 
   return (
-   <div className="my-10 mont-font"> 
+   <div className="my-10 mont-font "> 
     <h2 className="text-3xl md:text-4xl font-bold text-center my-10">
       Our <span className="primary-color">Sponsors</span>
     </h2>

@@ -22,11 +22,11 @@ const CountStats = () => {
   }, []);
 
   return (
-   <div className="container mx-auto my-20 mont-font px-5">
+   <div className="container mx-auto my-20 mont-font px-5 md:px-10 lg:px-4 ">
 
   
     
-     <div className="text-center mb-8">
+     <div className="text-center mb-8  ">
         <h2 className="text-3xl md:text-4xl font-bold text-center ">
       Platform <span className="primary-color"> Statistics</span>
     </h2>

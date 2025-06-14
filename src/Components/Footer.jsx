@@ -10,7 +10,7 @@ import {
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-400">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="container mx-auto px-4 sm:px-7 lg:px-6 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
           {/* Brand Info */}
           <div>
@@ -18,7 +18,7 @@ const Footer = () => {
               to="/"
               className="flex items-center space-x-2 text-white text-2xl font-bold mb-4"
             >
-              <img src="/logo22.png" alt="" className="w-50 " />
+              <img src="/logo22.png" alt="" className=" w-40 md:w-50 " />
               {/* <span className=" font-bold mt-3 text-3xl">Revix</span> */}
             </Link>
             <p className="text-sm leading-relaxed">
