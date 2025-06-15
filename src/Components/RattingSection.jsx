@@ -41,7 +41,7 @@ const RattingSection = ({ reatingId , serviceTitle}) => {
     // console.log("New Review:", newReview);
 
     axios
-      .post("http://localhost:3000/reviews", newReview)
+      .post("http://localhost:3000/reviews", newReview , { withCredentials: true })
       .then((response) => {
         console.log("Review added successfully:", response.data);
 

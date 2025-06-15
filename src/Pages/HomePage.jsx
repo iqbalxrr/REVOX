@@ -5,6 +5,8 @@ import OurPatner from "../Components/OurPatner";
 import MeetPartners from "../Components/MeetPartners";
 import CountStats from "../Components/CountStats";
 import ServicesByLimit from "../Components/ServicesByLimit";
+import UserFeedback from "../Components/UserFeedback";
+import WhyTrustUs from "../Components/WhyTrustUs";
 
 const HomePage = () => {
   const { scrollYProgress } = useScroll();
@@ -19,7 +21,9 @@ const HomePage = () => {
       <HeroSlider />
       <ServicesByLimit />
       <MeetPartners />
+      <WhyTrustUs></WhyTrustUs>
       <OurPatner />
+      <UserFeedback></UserFeedback>
       <CountStats />
     </div>
   );

@@ -2,13 +2,16 @@
 import axios from 'axios';
 import React, { useContext } from 'react';
 import { AuthContext } from '../Contex/AuthProvider';
+import { useNavigate } from 'react-router';
 
 const UpdateModal = ({ updateServiceid , updateService }) => {
   const {user} = useContext(AuthContext);
+ 
+  const navigate = useNavigate();
 
 
 
-    // console.log("Update Modal ID:", updateServiceid , updateService);
+
 
  const handleUppdateService = (event) => {
       event.preventDefault();
@@ -38,7 +41,8 @@ const UpdateModal = ({ updateServiceid , updateService }) => {
         // console.log("Service updated successfully:", response.data);
         form.reset();
         document.getElementById("my_modal_3").close();
-        alert("Service Updated Successfully");
+        navigate("/allservices");
+        
       })
       .catch((error) => {
         // console.error("Error updating service:", error.response?.data);
@@ -92,13 +96,24 @@ const UpdateModal = ({ updateServiceid , updateService }) => {
               className="w-full px-4 py-2 border rounded-md"
               required
             ></textarea>
-            <input
-              type="text"
+           <select
               name="category"
-              placeholder="Category"
               className="w-full px-4 py-2 border rounded-md"
               required
-            />
+            >
+              <option value="">Select Category</option>
+              <option value="Templates">Templates</option>
+              <option value="Mobile App">Mobile App</option>
+              <option value="Stock Photos">Stock Photos</option>
+              <option value="E-book">E-book</option>
+              <option value="WordPress Plugins">WordPress Plugins</option>
+              <option value="Online Course">Online Course</option>
+              <option value="UI Kit">UI Kit</option>
+              <option value="Design Service">Design Service</option>
+              <option value="SaaS Tool">SaaS Tool</option>
+              <option value="Freelancer">Freelancer</option>
+              <option value="Photography">Photography</option>
+            </select>
             <input
               type="number"
               name="price"
