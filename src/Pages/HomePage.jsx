@@ -1,21 +1,28 @@
-
-import React from 'react';
-import HeroSlider from '../Components/HeroSlider';
-import OurPatner from '../Components/OurPatner';
-import MeetPartners from '../Components/MeetPartners';
-import CountStats from '../Components/CountStats';
-import ServicesByLimit from '../Components/ServicesByLimit';
+import React from "react";
+import { motion, useScroll } from "framer-motion";
+import HeroSlider from "../Components/HeroSlider";
+import OurPatner from "../Components/OurPatner";
+import MeetPartners from "../Components/MeetPartners";
+import CountStats from "../Components/CountStats";
+import ServicesByLimit from "../Components/ServicesByLimit";
 
 const HomePage = () => {
-    return (
-        <div className='min-h-screen '>
-            <HeroSlider></HeroSlider>
-            <ServicesByLimit></ServicesByLimit>
-            <MeetPartners></MeetPartners>
-            <OurPatner></OurPatner>
-            <CountStats></CountStats>
-        </div>
-    );
+  const { scrollYProgress } = useScroll();
+
+  return (
+    <div className="min-h-screen relative">
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-blue-600 z-50 origin-left"
+        style={{ scaleX: scrollYProgress }}
+      />
+
+      <HeroSlider />
+      <ServicesByLimit />
+      <MeetPartners />
+      <OurPatner />
+      <CountStats />
+    </div>
+  );
 };
 
 export default HomePage;

@@ -16,7 +16,7 @@ const MyReviewPage = () => {
 
     useEffect(() => {
         if (user?.email) {
-           axios.get(`http://localhost:3000/myreviews?email=${user.email}`)
+           axios.get(`http://localhost:3000/myreviews?email=${user.email}`, { withCredentials: true })
             .then((response) => {
               setMyReviews(response.data);
               setLoading(false);
@@ -42,7 +42,10 @@ const MyReviewPage = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:3000/myreviews/delete/${id}`)
+          .delete(`http://localhost:3000/myreviews/delete/${id}`, {
+            data: { email: user?.email },
+            withCredentials: true,
+          })
           .then((res) => {
             if (res.data.deletedCount > 0) {
               const remaining = myReviews.filter((review) => review._id !== id);

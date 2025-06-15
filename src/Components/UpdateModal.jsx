@@ -1,8 +1,11 @@
 
 import axios from 'axios';
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../Contex/AuthProvider';
 
 const UpdateModal = ({ updateServiceid , updateService }) => {
+  const {user} = useContext(AuthContext);
+
 
 
     // console.log("Update Modal ID:", updateServiceid , updateService);
@@ -24,12 +27,13 @@ const UpdateModal = ({ updateServiceid , updateService }) => {
       website,
       description,
       category,
-      price
+      price,
+      email: user?.email,
     };
 
     // console.log("Update Service Data:", updateService);
 
-    axios.patch(`http://localhost:3000/updateservices/${updateServiceid}`, updateService)
+    axios.patch(`http://localhost:3000/updateservices/${updateServiceid}`, updateService , { withCredentials: true })
       .then((response) => {
         // console.log("Service updated successfully:", response.data);
         form.reset();

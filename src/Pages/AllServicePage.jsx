@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ServiceCard from "../Components/ServiceCard";
+import { motion, useScroll } from "framer-motion";
 
 const AllServicePage = () => {
   const [services, setServices] = useState([]);
@@ -8,6 +9,8 @@ const AllServicePage = () => {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
   const [selectCategory, setSelectCategory] = useState("");
+
+  const { scrollYProgress } = useScroll();
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -26,7 +29,11 @@ const AllServicePage = () => {
             , 
            category: selectCategory !== '' ? selectCategory : undefined
            },
-        });
+           withCredentials: true,
+           
+        },
+      );
+
         setServices(response.data);
       } catch (error) {
         console.error("Error fetching services:", error);
@@ -43,7 +50,13 @@ const AllServicePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-4 my-20 poppins">
+    <div className=" relative min-h-screen  bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-4 my-20 poppins ">
+       
+       <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-blue-600 z-50 origin-left"
+        style={{ scaleX: scrollYProgress }}
+      />
+
       <h2 className="text-4xl font-bold text-center my-20 mont-font">
         All <span className="primary-color">Services</span>
       </h2>
@@ -94,7 +107,7 @@ const AllServicePage = () => {
           </p>
         )}
         {services.map((service) => (
-          <ServiceCard key={service.id} service={service} />
+          <ServiceCard key={service._id} service={service} />
         ))}
       </div>
     </div>

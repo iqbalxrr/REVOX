@@ -11,6 +11,7 @@ import {
 import React, {  createContext, useEffect, useState } from "react";
 import auth from "../Firebase/firebase.config";
 import { toast, Bounce } from "react-toastify";
+import axios from "axios";
 
 export const AuthContext = createContext();
 
@@ -95,11 +96,25 @@ const AuthProvider = ({ children }) => {
     return sendPasswordResetEmail(auth, email);
   };
 
+
+  
+
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       // console.log(currentUser);
       setUser(currentUser);
       setLoading(false);
+      if(currentUser?.email){
+        
+            axios.post("http://localhost:3000/jwt", { email: currentUser?.email }, { withCredentials: true })
+            .then(( res) => {
+              console.log("token after genarating" ,res.data);
+            })
+            .catch( err => {
+              console.log(err)
+            })
+      }
     });
 
     return () => unsubscribe();

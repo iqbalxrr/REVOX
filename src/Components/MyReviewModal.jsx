@@ -1,9 +1,12 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
+import { AuthContext } from "../Contex/AuthProvider";
 
 const MyReviewModal = ({ updateReviewid , myReviews , setMyReviews }) => {
+
+  const {user} = useContext(AuthContext);
   const [reviewText, setReviewText] = useState("");
   const [rating, setRating] = useState(0);
 //   const [reviews, setReviews] = useState([]);
@@ -14,11 +17,12 @@ const MyReviewModal = ({ updateReviewid , myReviews , setMyReviews }) => {
     const newReview = {
       text: reviewText,
       rating,
+       email: user?.email,
     };
   
 
     axios
-      .patch(`http://localhost:3000/myreviews/update/${updateReviewid}`, newReview)
+      .patch(`http://localhost:3000/myreviews/update/${updateReviewid}`, newReview , { withCredentials: true })
       .then((response) => {
 
    const updatedReviews = myReviews.map((review) =>
