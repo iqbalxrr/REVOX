@@ -25,9 +25,9 @@ const WhyTrustUs = () => {
   ];
 
   return (
-    <section className="py-14">
-      <div className=" max-w-7xl  mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl  font-bold text-center mb-10 mont-font">
+    <section className="my-20">
+      <div className=" max-w-7xl  mx-auto px-6 ">
+        <h2 className="text-3xl md:text-4xl  font-bold text-center pb-20 mont-font">
           Why People <span className="primary-color">  Trust Us</span>
       </h2>
         

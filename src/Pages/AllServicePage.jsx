@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ServiceCard from "../Components/ServiceCard";
 import { motion, useScroll } from "framer-motion";
+import { Loader } from "lucide-react";
+
 
 const AllServicePage = () => {
   const [services, setServices] = useState([]);
@@ -48,6 +50,8 @@ const AllServicePage = () => {
   const handleSearch = () => {
     setSearch(searchTerm.trim());
   };
+
+
 
   return (
     <div className=" relative min-h-screen  bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-4 my-20 poppins ">
@@ -98,7 +102,17 @@ const AllServicePage = () => {
         </select>
       </div>
 
-      {loading && <p className="text-center text-gray-500">Loading...</p>}
+      {
+        loading && 
+        <div className="flex items-center justify-center h-40">
+            <div className="relative w-16 h-16">
+                <div className="absolute inset-0 rounded-full border-4 border-blue-500 opacity-30"></div>
+                <div className="w-full h-full border-4 border-blue-500 border-t-transparent border-b-transparent rounded-full animate-spin"></div>
+                <div className="absolute inset-0 rounded-full shadow-lg shadow-blue-500/50 animate-pulse"></div>
+            </div>
+        </div>
+        
+      }
 
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 lg:px-10">
         {services.length === 0 && !loading && (

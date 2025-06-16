@@ -29,13 +29,13 @@ const partners = [
 
 const MeetPartners = () => {
   return (
-    <section className="py-16 md:px-6 lg:px-0 ">
+    <section className="py-14 md:px-6 lg:px-0 ">
       <div className="container mx-auto px-5 text-center">
-        <Zoom direction="up"  >
+        <div direction="up"  >
            <h2 className="text-3xl md:text-4xl font-bold text-center text-black my-20 mont-font">Meet Our <span className="primary-color">Partners</span></h2>
-        </Zoom>
+        </div>
         
-        <Zoom >
+        <div >
           <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {partners.map((partner, index) => (
             <div
@@ -54,7 +54,7 @@ const MeetPartners = () => {
             </div>
           ))}
         </div>
-        </Zoom>
+        </div>
       </div>
     </section>
   );
