@@ -86,7 +86,8 @@ const RecentReview = () => {
         </button>
         <button
           onClick={() => setPage((prev) => prev + 1)}
-          className="px-2 py-2 border border-blue-400  text-black rounded-full hover:bg-gray-300  disabled "
+          disabled={page * limit >= reviews.length}
+          className="px-2 py-2 border border-blue-400  text-black rounded-full hover:bg-gray-300  disabled:opacity-30 "
         >
           <FcNext size={30} />
         </button>

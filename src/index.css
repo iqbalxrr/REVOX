@@ -4,9 +4,11 @@
 
 @import "tailwindcss";
  @plugin "daisyui" {
-  themes: light --default, ;
+  themes: light --default, dark --prefersdark;
+  themes: light --default;
 
  }
+
 .mont-font {
   font-family: "Montserrat", sans-serif;
   
