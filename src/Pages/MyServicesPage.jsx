@@ -20,7 +20,7 @@ const MyServicesPage = () => {
 
   useEffect(() => {
     if (user?.email) {
-       axios.get(`http://localhost:3000/myservices?email=${user.email}`, { withCredentials: true })
+       axios.get(`https://assigenment-a11-server.vercel.app/myservices?email=${user.email}`, { withCredentials: true })
         .then((response) => {
           setServices(response.data);
           setLoading(false);
@@ -47,7 +47,7 @@ const MyServicesPage = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:3000/services/delete/${id}`,{ 
+          .delete(`https://assigenment-a11-server.vercel.app/services/delete/${id}`,{ 
             data: { email: user?.email },
             withCredentials: true,
           })

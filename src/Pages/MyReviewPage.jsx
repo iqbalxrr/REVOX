@@ -16,10 +16,11 @@ const MyReviewPage = () => {
 
     useEffect(() => {
         if (user?.email) {
-           axios.get(`http://localhost:3000/myreviews?email=${user.email}`, { withCredentials: true })
+           axios.get(`https://assigenment-a11-server.vercel.app/myreviews?email=${user?.email}`, { withCredentials: true })
             .then((response) => {
               setMyReviews(response.data);
               setLoading(false);
+              
             })
             .catch((error) => {
               console.error("Error fetching services:", error);
@@ -42,7 +43,7 @@ const MyReviewPage = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:3000/myreviews/delete/${id}`, {
+          .delete(`https://assigenment-a11-server.vercel.app/myreviews/delete/${id}`, {
             data: { email: user?.email },
             withCredentials: true,
           })

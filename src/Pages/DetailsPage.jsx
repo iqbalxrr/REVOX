@@ -15,7 +15,7 @@ const DetailsPage = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/services/${_id}`)
+      .get(`https://assigenment-a11-server.vercel.app/services/${_id}`)
       .then((response) => {
         setServiceDetails(response.data);
         console.log("Service details:", response.data);

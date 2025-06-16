@@ -3,14 +3,12 @@ import axios from 'axios';
 import React, { useContext } from 'react';
 import { AuthContext } from '../Contex/AuthProvider';
 import { useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 
 const UpdateModal = ({ updateServiceid , updateService }) => {
   const {user} = useContext(AuthContext);
  
   const navigate = useNavigate();
-
-
-
 
 
  const handleUppdateService = (event) => {
@@ -36,7 +34,7 @@ const UpdateModal = ({ updateServiceid , updateService }) => {
 
     // console.log("Update Service Data:", updateService);
 
-    axios.patch(`http://localhost:3000/updateservices/${updateServiceid}`, updateService , { withCredentials: true })
+    axios.patch(`https://assigenment-a11-server.vercel.app/updateservices/${updateServiceid}`, updateService , { withCredentials: true })
       .then((response) => {
         // console.log("Service updated successfully:", response.data);
         form.reset();
@@ -46,7 +44,7 @@ const UpdateModal = ({ updateServiceid , updateService }) => {
       })
       .catch((error) => {
         // console.error("Error updating service:", error.response?.data);
-        alert("Failed to update service: " + error.response?.data?.message);
+        Swal.fire("Failed to update service: " + error.response?.data?.message);
       });
 
 

@@ -1,40 +1,51 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ServiceCard from "./ServiceCard";
-
+import Loader from "./Loader";
+import { motion } from "framer-motion";
 
 const ServicesByLimit = () => {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     axios
-      .get("http://localhost:3000/servicesbylimit")
+      .get("https://assigenment-a11-server.vercel.app/servicesbylimit")
       .then((res) => {
         setServices(res.data);
-        setLoading(true);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
+        setLoading(false);
       });
   }, []);
 
+  if (!loading && services.length === 0) return <Loader />;
+
   return (
-    <div className="md:px-6 lg:px-0 ">
-      
-       
-       <h2 className="text-3xl md:text-4xl  font-bold text-center my-20 mont-font">
-        Recently <span className="primary-color"> Added Services</span>
-      </h2>
-      
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 ">
-        {services.length === 0 && !loading && (
-          <p className="text-center text-gray-700 col-span-full">
-            No services found.
-          </p>
-        )}
-        {services.map((service) => (
-          <ServiceCard key={service._id} service={service} />
+    <div className="md:px-6 lg:px-0">
+      {/* Animated Heading */}
+      <motion.h2
+        initial={{ opacity: 0, y: -60 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2.2, ease: "easeOut" }}
+        className="text-3xl md:text-4xl font-bold text-center my-20 mont-font"
+      >
+        Recently <span className="primary-color">Added Services</span>
+      </motion.h2>
+
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+        {services.map((service, index) => (
+          <motion.div
+            key={service._id}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2.8, delay: index * 0.4, ease: "easeOut" }}
+          >
+            <ServiceCard service={service} />
+          </motion.div>
         ))}
       </div>
     </div>

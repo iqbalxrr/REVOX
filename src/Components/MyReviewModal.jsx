@@ -35,7 +35,7 @@ const MyReviewModal = ({ updateReviewid, myReviews, setMyReviews }) => {
 
     axios
       .patch(
-        `http://localhost:3000/myreviews/update/${updateReviewid}`,
+        `https://assigenment-a11-server.vercel.app/myreviews/update/${updateReviewid}`,
         newReview,
         {
           withCredentials: true,

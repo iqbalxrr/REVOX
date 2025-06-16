@@ -27,7 +27,7 @@ const AllServicePage = () => {
     const fetchServices = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("http://localhost:3000/allServices", {
+        const response = await axios.get("https://assigenment-a11-server.vercel.app/allServices", {
           params: {
             search,
             category: selectCategory !== "" ? selectCategory : undefined,
@@ -36,6 +36,9 @@ const AllServicePage = () => {
           },
           withCredentials: true,
         });
+
+        // console.log("Response Data:", response.data);
+
 
         setServices(response.data.services);
         setTotalServices(response.data.total);

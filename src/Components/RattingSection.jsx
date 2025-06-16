@@ -17,7 +17,7 @@ const RattingSection = ({ reatingId , serviceTitle}) => {
   // console.log("Ratting Section reatingId:", reatingId);
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/allreviews/${reatingId}`)
+      .get(`https://assigenment-a11-server.vercel.app/allreviews/${reatingId}`)
       .then((response) => {
         setReviews(response.data);
         console.log("Reviews fetched successfully:", response.data);
@@ -41,7 +41,7 @@ const RattingSection = ({ reatingId , serviceTitle}) => {
     // console.log("New Review:", newReview);
 
     axios
-      .post("http://localhost:3000/reviews", newReview , { withCredentials: true })
+      .post("https://assigenment-a11-server.vercel.app/reviews", newReview , { withCredentials: true })
       .then((response) => {
         console.log("Review added successfully:", response.data);
 

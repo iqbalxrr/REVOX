@@ -27,7 +27,7 @@ const AddServicePage = () => {
     };
 
     axios
-      .post("http://localhost:3000/services", service , { withCredentials: true })
+      .post("https://assigenment-a11-server.vercel.app/services", service , { withCredentials: true })
       .then((response) => {
         console.log("Service added successfully:", response.data);
         Swal.fire({
