@@ -71,6 +71,7 @@ const UpdateModal = ({ updateServiceid , updateService }) => {
             <input
               type="text"
               name="serviceTitle"
+              defaultValue={updateService?.serviceTitle || ""}
               placeholder="Service Title"
               className="w-full px-4 py-2 border rounded-md"
               required
@@ -78,6 +79,7 @@ const UpdateModal = ({ updateServiceid , updateService }) => {
             <input
               type="text"
               name="companyName"
+              defaultValue={updateService?.companyName || ""}
               placeholder="Company Name"
               className="w-full px-4 py-2 border rounded-md"
               required
@@ -85,17 +87,20 @@ const UpdateModal = ({ updateServiceid , updateService }) => {
             <input
               type="text"
               name="website"
+              defaultValue={updateService?.website || ""}
               placeholder="Company Website"
               className="w-full px-4 py-2 border rounded-md"
             />
             <textarea
               name="description"
               placeholder="Service Description"
+              defaultValue={updateService?.description || ""}
               className="w-full px-4 py-2 border rounded-md"
               required
             ></textarea>
            <select
               name="category"
+              defaultValue={updateService?.category || ""}
               className="w-full px-4 py-2 border rounded-md"
               required
             >
@@ -116,6 +121,7 @@ const UpdateModal = ({ updateServiceid , updateService }) => {
               type="number"
               name="price"
               placeholder="Price"
+              defaultValue={updateService?.price || ""}
               className="w-full px-4 py-2 border rounded-md"
               required
             />
