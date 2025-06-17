@@ -4,7 +4,7 @@ Live Site 👉 [https://rev0x.netlify.app](https://rev0x.netlify.app)
 
 ## 📌 Overview
 
-**Revox** is a modern, responsive React-based web application designed to showcase user-generated assignments and creative works. With elegant animations, Firebase authentication, and dynamic routing, it delivers a clean, user-friendly experience. This project is built using the latest React 19, styled with Tailwind CSS and DaisyUI, and enhanced with smooth motion libraries like Framer Motion and GSAP.
+**Revox**is your go-to platform for discovering honest, insightful, and community-driven reviews on a wide range of products and services. Whether you're looking for the best local restaurants, tech gadgets, apps, or service providers. it is a modern, responsive React-based web application designed to showcase user-generated assignments and creative works. With elegant animations, Firebase authentication, and dynamic routing, it delivers a clean, user-friendly experience. This project is built using the latest React 19, styled with Tailwind CSS and DaisyUI, and enhanced with smooth motion libraries like Framer Motion and GSAP.
 
 ---
 

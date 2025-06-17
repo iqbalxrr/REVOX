@@ -22,7 +22,7 @@ const Footer = () => {
               {/* <span className=" font-bold mt-3 text-3xl">Revix</span> */}
             </Link>
             <p className="text-sm leading-relaxed">
-              Qview is your go-to platform for discovering honest, insightful, and community-driven reviews on a wide range of products and services. Whether you're looking for the best local restaurants, tech gadgets, apps, or service providers.
+              REVOX is your go-to platform for discovering honest, insightful, and community-driven reviews on a wide range of products and services. Whether you're looking for the best local restaurants, tech gadgets, apps, or service providers.
             </p>
             <div className="flex space-x-4 mt-4">
               <a href="#" className="hover:text-white transition-transform transform hover:scale-110">
