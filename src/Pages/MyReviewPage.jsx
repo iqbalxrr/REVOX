@@ -4,6 +4,7 @@ import axios from "axios";
 import Loader from "../Components/Loader";
 import Swal from "sweetalert2";
 import MyReviewModal from "../Components/MyReviewModal";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const MyReviewPage = () => {
      const { user } = useContext(AuthContext);
@@ -68,7 +69,11 @@ if (loading) return <Loader />;
 
 
   return (
-    <div className="px-4 py-20 container mx-auto  min-h-[70vh]">
+   <HelmetProvider>
+    <Helmet>
+      <title> My Reviews | Revox </title>
+    </Helmet>
+     <div className="px-4 py-20 container mx-auto  min-h-[70vh]">
       <h1 className="text-3xl md:text-4xl font-bold text-center mt-20 mb-10 mont-font ">
         My <span className="primary-color"> Reviews</span>
       </h1>
@@ -114,6 +119,7 @@ if (loading) return <Loader />;
 </dialog>
 
     </div>
+   </HelmetProvider>
   );
 };
 

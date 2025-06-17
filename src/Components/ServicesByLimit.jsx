@@ -25,13 +25,13 @@ const ServicesByLimit = () => {
   if (!loading && services.length === 0) return <Loader />;
 
   return (
-    <div className="md:px-6 lg:px-0">
+    <div className="p-2 md:px-6 lg:px-0">
       {/* Animated Heading */}
       <motion.h2
         initial={{ opacity: 0, y: -60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 2.2, ease: "easeOut" }}
-        className="text-3xl md:text-4xl font-bold text-center my-20 mont-font"
+        className="text-3xl md:text-4xl font-bold text-center mx-auto w-5/6 my-20 mont-font"
       >
         Recently <span className="primary-color">Added Services</span>
       </motion.h2>

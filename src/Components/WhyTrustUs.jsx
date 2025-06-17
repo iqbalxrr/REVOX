@@ -27,7 +27,7 @@ const features = [
 
 const WhyTrustUs = () => {
   return (
-    <section className="my-20">
+    <section className="my-20 p-2">
       <div className="max-w-7xl mx-auto px-6">
         {/* Animated Heading */}
         <motion.h2

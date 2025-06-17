@@ -37,7 +37,7 @@ const itemVariants = {
 
 const MeetPartners = () => {
   return (
-    <section className="py-14 md:px-6 lg:px-0">
+    <section className="py-14 md:px-6 lg:px-0 p-4">
       <motion.div 
       variants={containerVariants}
        initial="hidden"

@@ -39,7 +39,7 @@ const RecentReview = () => {
   if (loading) return <Loader />; // ✅ fix condition
 
   return (
-    <div className="px-5 container mx-auto">
+    <div className="px-5 container mx-auto p-4">
       <motion.h2
         initial={{ opacity: 0, y: -60 }}
         animate={{ opacity: 1, y: 0 }}

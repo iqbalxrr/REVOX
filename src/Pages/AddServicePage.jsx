@@ -50,7 +50,7 @@ const AddServicePage = () => {
   return (
     <HelmetProvider>
       <Helmet>
-        <title>Add Service | Qview</title>
+        <title>Add Service | Revox</title>
       </Helmet>
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-4 mt-20 poppins">
         <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-2xl">

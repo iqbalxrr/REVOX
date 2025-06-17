@@ -9,6 +9,7 @@ import DetailsPage from "../Pages/DetailsPage";
 import MyServicesPage from "../Pages/MyServicesPage";
 import MyReviewPage from "../Pages/MyReviewPage";
 import PrivateRoute from "../Routers/PrivateRoute/PrivateRoute";
+import NotFoundPage from "../Pages/NotFoundPage";
 
 
 
@@ -52,6 +53,12 @@ export const router = createBrowserRouter([
 
             }
         ]
+    },
+    
+    {
+        path: "*",
+        Component: NotFoundPage
+
     }
     
 ])

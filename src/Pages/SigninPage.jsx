@@ -80,7 +80,7 @@ const SigninPage = () => {
   return (
     <HelmetProvider>
       <Helmet>
-        <title>Login | Qview</title>
+        <title>Login | Revox</title>
       </Helmet>
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-4">
               <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-md">

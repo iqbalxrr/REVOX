@@ -38,7 +38,7 @@ const CountStats = () => {
 
   return (
     <motion.div
-      className="container mx-auto my-20 mont-font px-5 md:px-10 lg:px-4"
+      className="container mx-auto my-20 mont-font px-5 md:px-10 lg:px-4 p-10"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"

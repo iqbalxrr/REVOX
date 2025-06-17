@@ -2,6 +2,7 @@ import axios from "axios";
 import React, {  useEffect, useState } from "react";
 import { useParams } from "react-router";
 import RattingSection from "../Components/RattingSection";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 
 const DetailsPage = () => {
@@ -25,7 +26,11 @@ const DetailsPage = () => {
       });
   }, [_id]);
   return (
-    <div className="container mx-auto min-h-screen bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-7 poppins">
+   <HelmetProvider>
+    <Helmet>
+      <title>Details | Revox </title>
+    </Helmet>
+     <div className="container mx-auto min-h-screen bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-7 poppins">
       <div className="flex flex-col  md:flex-row  mt-45  rounded-2xl pb-10 gap-16 ">
         <img
           src={serviceDetails.serviceImage}
@@ -85,6 +90,7 @@ const DetailsPage = () => {
         </div>
 
     </div>
+   </HelmetProvider>
   );
 };
 
