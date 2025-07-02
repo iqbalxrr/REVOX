@@ -6,7 +6,7 @@ import Footer from '../Components/Footer';
 
 const MainLayout = () => {
     return (
-        <div className=' text-black bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100'>
+        <div className=' text-black bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 '>
            
             <Navber></Navber>
             <Outlet >
