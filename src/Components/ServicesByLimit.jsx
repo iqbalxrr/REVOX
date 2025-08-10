@@ -26,7 +26,7 @@ const ServicesByLimit = () => {
 
   return (
     <div className="p-2 md:px-6 lg:px-0">
-      {/* Animated Heading section  */}
+      {/* Animated Heading section...  */}
       <motion.h2
         initial={{ opacity: 0, y: -60 }}
         animate={{ opacity: 1, y: 0 }}
