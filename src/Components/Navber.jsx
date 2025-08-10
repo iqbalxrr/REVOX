@@ -60,8 +60,8 @@ const Navber = () => {
   // console.log("User:", user , user?.photoURL);
 
   return (
-    <nav className={`border-b mont-font border-gray-200 bg-white shadow-md fixed w-full overflow-hidden py-2 md:py-4 top-0 z-50 px-2 md:px-8`}>
-      <div className="container flex flex-wrap items-center justify-between mx-auto p-2">
+    <nav className={`border-b mont-font border-gray-200 bg-white shadow-md fixed w-full top-0 z-50 px-2`}>
+      <div className="container flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/" className="flex items-center  ">
           <img src="/logo22.png" className="w-35 md:w-40 mr-0" alt="Logo" />
           <span className="text-3xl md:text-5xl font-bold mt-5  ">
