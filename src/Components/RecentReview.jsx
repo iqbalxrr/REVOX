@@ -9,15 +9,15 @@ const RecentReview = () => {
   const [reviews, setReviews] = useState([]);
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(true);
-  const limit = 10;
+  const limit = 15;
 
   useEffect(() => {
-    setLoading(true); // ✅ move this at the start
+    setLoading(true);
     axios
       .get(`https://assigenment-a11-server.vercel.app/reviews?page=${page}&limit=${limit}`)
       .then((res) => {
         setReviews(res.data);
-        setLoading(false); // ✅ stop loading after data is set
+        setLoading(false);
       })
       .catch((err) => {
         console.error(err);
@@ -30,78 +30,91 @@ const RecentReview = () => {
       {[...Array(5)].map((_, i) => (
         <FaStar
           key={i}
-          className={`text-sm ${i < rating ? "text-yellow-500" : "text-gray-300"}`}
+          className={`text-base md:text-lg ${i < rating ? "text-yellow-400" : "text-gray-300"}`}
+          aria-label={i < rating ? "Filled star" : "Empty star"}
         />
       ))}
     </div>
   );
 
-  if (loading) return <Loader />; // ✅ fix condition
+  if (loading) return <Loader />;
 
   return (
-    <div className="px-5 container mx-auto p-4">
+    <section className="container mx-auto px-4  py-16">
       <motion.h2
-        initial={{ opacity: 0, y: -60 }}
+        initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 2.2, ease: "easeOut" }}
-        className="text-3xl md:text-4xl font-bold text-center my-20 mont-font"
+        transition={{ duration: 1.2, ease: "easeOut" }}
+        className="text-3xl md:text-4xl font-extrabold text-center mb-16 mont-font"
       >
         Recent <span className="primary-color">reviews</span>
       </motion.h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
         {reviews.map((review, index) => (
-          <motion.div
+          <motion.article
             key={review._id}
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2.8, delay: index * 0.6, ease: "easeOut" }}
-            className="bg-white shadow-sm rounded-xl p-4 flex flex-col justify-between h-full"
+            transition={{ duration: 1, delay: index * 0.15, ease: "easeOut" }}
+            className="bg-white rounded-2xl shadow-md p-5 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-transform duration-300"
+            aria-label={`Review by ${review.displayName || "Anonymous"}`}
           >
-            <div className="flex items-center gap-3 mb-2">
+            <header className="flex items-center gap-4 mb-3">
               <img
-                src={review.photoURL}
-                alt={review.displayName}
-                className="w-10 h-10 rounded-full object-cover"
+                src={review.photoURL || "https://via.placeholder.com/40"}
+                alt={review.displayName || "Anonymous"}
+                className="w-10 h-10 rounded-full object-cover border-2 border-[#0077B6]"
               />
               <div>
-                <p className="font-semibold text-sm">
+                <p className="font-semibold text-gray-800 text-base">
                   {review.displayName || "Anonymous"}
                 </p>
-                <p>{review.date}</p>
+                <time className="text-gray-500 text-sm" dateTime={review.date}>
+                  {new Date(review.date).toLocaleDateString()}
+                </time>
               </div>
-            </div>
-            {renderStars(review.rating)}
-            <p className="text-sm text-gray-700 line-clamp-4">{review.text}</p>
-            <div className="mt-4 border-t border-gray-200 pt-2 flex items-center gap-2">
-              <div>
-                <p className="text-sm font-medium">
-                  {review.serviceTitle || "Unknown Service"}
-                </p>
-              </div>
-            </div>
-          </motion.div>
+            </header>
+
+            <div className="mb-4">{renderStars(review.rating)}</div>
+
+            <p className="text-gray-700 text-sm line-clamp-4 mb-4">
+              {review.text}
+            </p>
+
+            <footer>
+              <p className="text-[#0077B6] font-semibold text-sm truncate" title={review.serviceTitle}>
+                {review.serviceTitle || "Unknown Service"}
+              </p>
+            </footer>
+          </motion.article>
         ))}
       </div>
 
       {/* Pagination */}
-      <div className="flex justify-center gap-4 mt-20">
+      <nav
+        aria-label="Reviews Pagination"
+        className="flex justify-center items-center gap-6 mt-12"
+      >
         <button
-          onClick={() => setPage((prev) => Math.max(prev - 1, 0))}
-          className="px-2 py-2 border border-blue-400 text-black rounded-full hover:bg-gray-300 disabled:opacity-30"
+          onClick={() => setPage((p) => Math.max(p - 1, 0))}
           disabled={page === 0}
+          className="flex items-center justify-center w-12 h-12 rounded-full border border-[#0077B6] text-[#0077B6] hover:bg-[#0077B6] hover:text-white disabled:opacity-40 disabled:cursor-not-allowed transition"
+          aria-label="Previous Page"
         >
-          <FcPrevious size={30} />
+          <FcPrevious size={26} />
         </button>
+        <span className="text-gray-700 font-semibold select-none">Page {page + 1}</span>
         <button
-          onClick={() => setPage((prev) => prev + 1)}
-          disabled={page * limit >= reviews.length}
-          className="px-2 py-2 border border-blue-400 text-black rounded-full hover:bg-gray-300 disabled:opacity-30"
+          onClick={() => setPage((p) => p + 1)}
+          disabled={reviews.length < limit}
+          className="flex items-center justify-center w-12 h-12 rounded-full border border-[#0077B6] text-[#0077B6] hover:bg-[#0077B6] hover:text-white disabled:opacity-40 disabled:cursor-not-allowed transition"
+          aria-label="Next Page"
         >
-          <FcNext size={30} />
+          <FcNext size={26} />
         </button>
-      </div>
-    </div>
+      </nav>
+    </section>
   );
 };
 

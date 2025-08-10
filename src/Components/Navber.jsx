@@ -61,7 +61,7 @@ const Navber = () => {
 
   return (
     <nav className={`border-b mont-font border-gray-200 bg-white shadow-md fixed w-full overflow-hidden py-2 md:py-4 top-0 z-50 px-2 md:px-8`}>
-      <div className="container flex flex-wrap items-center justify-between mx-auto p-4">
+      <div className="container flex flex-wrap items-center justify-between mx-auto p-2">
         <Link to="/" className="flex items-center  ">
           <img src="/logo22.png" className="w-35 md:w-40 mr-0" alt="Logo" />
           <span className="text-3xl md:text-5xl font-bold mt-5  ">
@@ -113,13 +113,13 @@ const Navber = () => {
                 <div className="flex flex-col lg:flex-row gap-2 text-center">
                   <Link
                     to="/signin"
-                    className="block px-4 py-2 bg-[#0077B6] text-white rounded hover:bg-[#005f94] transition-all"
+                    className="block px-4 py-2 bg-[#017CDB] text-white rounded hover:bg-[#005f94] transition-all"
                   >
                     Login
                   </Link>
                   <Link
                     to="/signup"
-                    className="block px-4 py-2 bg-[#0077B6] text-white rounded hover:bg-[#005f94] transition-all"
+                    className="block px-4 py-2 bg-[#017CDB] text-white rounded hover:bg-[#005f94] transition-all"
                   >
                     Register
                   </Link>
@@ -127,7 +127,7 @@ const Navber = () => {
               ) : (
                 <button
                   onClick={handleLogout}
-                  className="block px-4 py-2 bg-[#0077B6] text-white rounded hover:bg-[#005f94] transition-all"
+                  className="block px-4 py-2 bg-[#017CDA] text-white rounded hover:bg-[#005f94] transition-all"
                 >
                   Log out
                 </button>

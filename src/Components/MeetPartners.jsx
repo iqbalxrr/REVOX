@@ -23,58 +23,60 @@ const partners = [
     description: "Ensured application-level security and data privacy.",
   },
 ];
+
 const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.3, when: "beforeChildren" },
-    },
-  };
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.25, when: "beforeChildren" },
+  },
+};
+
 const itemVariants = {
-    hidden: { opacity: 0, y: 20, scale: 0.9 },
-    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8 } },
-  };
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
 
 const MeetPartners = () => {
   return (
-    <section className="py-14 md:px-6 lg:px-0 p-4">
-      <motion.div 
-      variants={containerVariants}
-       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-      className="container mx-auto px-5 text-center">
-    
-        <motion.div
+    <section className="py-16 px-4 md:px-10  ">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="container mx-auto  text-center "
+      >
+        <motion.h2
           variants={itemVariants}
-         
+          className="text-3xl md:text-4xl font-extrabold mb-16 mont-font text-gray-900"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-black my-20 mont-font">
-            Meet Our <span className="primary-color">Partners</span>
-          </h2>
-        </motion.div>
+          Meet Our <span className="primary-color">Partners</span>
+        </motion.h2>
 
-        {/* Animated Cards */}
-        <div>
-          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-            {partners.map((partner, index) => (
-              <motion.div
-                key={index}
-                 variants={containerVariants}
-                className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center text-center hover:shadow-lg transition"
-              >
-                <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  className="h-16 mb-4 object-contain"
-                />
-                <h3 className="text-xl font-semibold">{partner.name}</h3>
-                <p className="text-gray-600 mt-2 text-sm poppins">
-                  {partner.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+        <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          {partners.map((partner, index) => (
+            <motion.div
+              key={partner.name}
+              variants={itemVariants}
+              className="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer flex flex-col items-center text-center"
+            >
+              <img
+                src={partner.logo}
+                alt={`${partner.name} logo`}
+                className="h-20 w-auto mb-6 object-contain"
+              />
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                {partner.name}
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{partner.description}</p>
+            </motion.div>
+          ))}
         </div>
       </motion.div>
     </section>

@@ -33,10 +33,10 @@ const ServicesByLimit = () => {
         transition={{ duration: 2.2, ease: "easeOut" }}
         className="text-3xl md:text-4xl font-bold text-center mx-auto w-5/6 my-20 mont-font"
       >
-        Recently <span className="primary-color">Added Services</span>
+        Added<span className="primary-color"> Services</span>
       </motion.h2>
 
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-4">
         {services.map((service, index) => (
           <motion.div
             key={service._id}
