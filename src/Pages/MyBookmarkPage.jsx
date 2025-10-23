@@ -97,6 +97,7 @@ const MyBookmarkPage = () => {
                 </p>
               </div>
               <div className="mx-auto md:mx-0">
+                {/* delete features  */}
                 <button
                   onClick={() => handleDeleteBookmark(bookmark._id)}
                   className="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded"
