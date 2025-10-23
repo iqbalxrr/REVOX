@@ -12,6 +12,7 @@ import PrivateRoute from "../Routers/PrivateRoute/PrivateRoute";
 import NotFoundPage from "../Pages/NotFoundPage";
 import About from "../Components/About";
 import Contact from "../Components/Contact";
+import MyBookmarkPage from "../Pages/MyBookmarkPage";
 
 
 
@@ -60,6 +61,11 @@ export const router = createBrowserRouter([
             {
                 path: "/myreviews",
                 element: <PrivateRoute> <MyReviewPage></MyReviewPage> </PrivateRoute>
+
+            },
+            {
+                path: "/mybookmarks",
+                element: <PrivateRoute> <MyBookmarkPage></MyBookmarkPage> </PrivateRoute>
 
             }
         ]

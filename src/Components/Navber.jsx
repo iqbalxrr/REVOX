@@ -55,6 +55,9 @@ const Navber = () => {
           <li>
             <NavLink to="/myreviews" onClick={() => setMenuOpen(false)}>My Reviews</NavLink>
           </li>
+          <li>
+            <NavLink to="/mybookmarks" onClick={() => setMenuOpen(false)}>My Bookmark</NavLink>
+          </li>
         </>
       )}
     </>
